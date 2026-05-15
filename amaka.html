@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>For Chiamaka 🩷</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --bg:#0f0b14;
+  --pink:#ff6fb5;
+  --soft:#ffd9ea;
+  --text:#f4e9f0;
+  --card:#ffffff10;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,body{
+  width:100%;
+  overflow-x:hidden;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:
+    radial-gradient(circle at top left,#ff69b420,transparent 30%),
+    radial-gradient(circle at bottom right,#ff149320,transparent 30%),
+    var(--bg);
+
+  color:white;
+  min-height:100vh;
+  position:relative;
+}
+
+/* BACKGROUND GLOW */
+
+.glow{
+  position:fixed;
+  width:450px;
+  height:450px;
+  background:#ff69b430;
+  border-radius:50%;
+  filter:blur(120px);
+  top:-150px;
+  left:-120px;
+  z-index:-1;
+  animation:floatGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes floatGlow{
+  from{
+    transform:translate(0,0);
+  }
+  to{
+    transform:translate(80px,60px);
+  }
+}
+
+/* FLOATING HEARTS */
+
+.hearts span{
+  position:absolute;
+  bottom:-100px;
+  color:#ff9bcf;
+  opacity:.5;
+  animation:floatUp linear infinite;
+}
+
+.hearts span:nth-child(1){
+  left:10%;
+  font-size:18px;
+  animation-duration:12s;
+}
+
+.hearts span:nth-child(2){
+  left:35%;
+  font-size:28px;
+  animation-duration:15s;
+}
+
+.hearts span:nth-child(3){
+  left:70%;
+  font-size:22px;
+  animation-duration:13s;
+}
+
+@keyframes floatUp{
+
+  0%{
+    transform:translateY(0) scale(.5);
+    opacity:0;
+  }
+
+  20%{
+    opacity:.6;
+  }
+
+  100%{
+    transform:translateY(-120vh) scale(1.2);
+    opacity:0;
+  }
+
+}
+
+/* SLIDES */
+
+.slider{
+  width:100%;
+  position:relative;
+}
+
+.slide{
+  width:100%;
+  min-height:100vh;
+
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+  padding:40px 20px;
+
+  animation:fade .6s ease;
+}
+
+.slide.active{
+  display:flex;
+}
+
+@keyframes fade{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* TEXTS */
+
+.intro{
+  color:#ffcfe5;
+  letter-spacing:3px;
+  text-transform:uppercase;
+
+  margin-bottom:20px;
+
+  font-size:clamp(.7rem,2vw,.9rem);
+}
+
+h1{
+  font-family:'Playfair Display',serif;
+
+  font-size:clamp(2.7rem,9vw,5.5rem);
+
+  line-height:1.1;
+
+  margin-bottom:24px;
+
+  color:white;
+
+  text-shadow:0 0 20px #ff69b460;
+}
+
+.typing{
+  width:min(700px,100%);
+
+  color:var(--text);
+
+  line-height:1.9;
+
+  margin-bottom:40px;
+
+  font-size:clamp(.95rem,2.5vw,1.1rem);
+}
+
+/* BUTTON */
+
+.btn{
+  border:none;
+  outline:none;
+
+  padding:15px 34px;
+
+  border-radius:999px;
+
+  background:linear-gradient(135deg,#ff5fa2,#ff87c0);
+
+  color:white;
+
+  font-size:clamp(.9rem,2vw,1rem);
+
+  font-weight:600;
+
+  cursor:pointer;
+
+  transition:.3s ease;
+
+  box-shadow:0 10px 30px rgba(255,105,180,.25);
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+}
+
+.btn:active{
+  transform:scale(.96);
+}
+
+/* CARDS */
+
+.card-container{
+  width:min(1100px,100%);
+
+  display:grid;
+
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+  gap:20px;
+}
+
+.card{
+  background:var(--card);
+
+  border:1px solid rgba(255,255,255,.08);
+
+  backdrop-filter:blur(14px);
+
+  border-radius:24px;
+
+  padding:28px;
+
+  transition:.3s ease;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  border-color:#ff85c180;
+}
+
+.card h2{
+  color:#ffd6e8;
+
+  margin-bottom:14px;
+
+  font-size:clamp(1rem,2vw,1.2rem);
+}
+
+.card p{
+  color:#f5e5ee;
+
+  line-height:1.8;
+
+  font-size:clamp(.9rem,2vw,1rem);
+}
+
+/* FINAL */
+
+.final-title{
+  font-family:'Playfair Display',serif;
+
+  color:#ffd1e7;
+
+  margin-bottom:25px;
+
+  line-height:1.2;
+
+  font-size:clamp(2.2rem,8vw,4.5rem);
+}
+
+.final-text{
+  width:min(760px,100%);
+
+  line-height:2;
+
+  color:#f5dce8;
+
+  margin-bottom:35px;
+
+  font-size:clamp(.95rem,2.5vw,1.1rem);
+}
+
+.love{
+  color:#ff90c8;
+
+  font-size:clamp(1rem,3vw,1.4rem);
+
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  50%{
+    transform:scale(1.05);
+  }
+}
+
+/* MOBILE + TABLET */
+
+@media(max-width:1024px){
+
+  .slide{
+    padding:60px 20px;
+  }
+
+  .card-container{
+    grid-template-columns:1fr;
+    max-width:500px;
+  }
+
+  .btn{
+    width:100%;
+    max-width:280px;
+  }
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="glow"></div>
+
+<!-- FLOATING HEARTS -->
+
+<div class="hearts">
+  <span>🩷</span>
+  <span>💖</span>
+  <span>💕</span>
+</div>
+
+<!-- SLIDER -->
+
+<div class="slider">
+
+  <!-- SLIDE 1 -->
+
+  <section class="slide active">
+
+    <p class="intro">
+      Something made with love
+    </p>
+
+    <h1>
+      For Chiamaka 🩷
+    </h1>
+
+    <p class="typing">
+      You know what's dangerous?
+      Meeting someone so beautiful,
+      so soft,
+      so unforgettable...
+      that your mind keeps replaying them like your favorite song.
+    </p>
+
+    <button class="btn next-btn">
+      Tap Here Beautiful ✨
+    </button>
+
+  </section>
+
+  <!-- SLIDE 2 -->
+
+  <section class="slide">
+
+    <div class="card-container">
+
+      <div class="card">
+        <h2>🩷 Your Smile</h2>
+        <p>
+          Your smile genuinely feels unfair.
+          One look and suddenly everything feels lighter.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>💖 Your Energy</h2>
+        <p>
+          You have this calm softness about you...
+          the type that quietly steals attention.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>💕 Your Presence</h2>
+        <p>
+          Some people enter a room.
+          You change the entire atmosphere.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>💗 Your Eyes</h2>
+        <p>
+          Looking into your eyes feels like getting distracted
+          in the best possible way.
+        </p>
+      </div>
+
+    </div>
+
+    <button class="btn next-btn" style="margin-top:35px;">
+      One Last Thing 💌
+    </button>
+
+  </section>
+
+  <!-- SLIDE 3 -->
+
+  <section class="slide">
+
+    <h2 class="final-title">
+      You’re Literally Art 🩷
+    </h2>
+
+    <p class="final-text">
+      I wanted to make something pretty for you...
+      but then I realized that's impossible.
+      Because no matter what I create,
+      it could never compete with how beautiful you naturally are.
+      <br><br>
+      So this is just a small reminder —
+      that someone out there thinks you're genuinely special.
+    </p>
+
+    <div class="love">
+      You really do make the world softer ✨
+    </div>
+
+  </section>
+
+</div>
+
+<script>
+
+const slides = document.querySelectorAll(".slide");
+const buttons = document.querySelectorAll(".next-btn");
+
+let current = 0;
+
+buttons.forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    slides[current].classList.remove("active");
+
+    current++;
+
+    if(current >= slides.length){
+      current = 0;
+    }
+
+    slides[current].classList.add("active");
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  });
+
+});
+
+</script>
+
+</body>
+</html>
